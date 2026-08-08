@@ -27,7 +27,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   Change this to your real business email before deployment.
   For production, SMTP (e.g. PHPMailer) is recommended over PHP mail().
 */
-$to = 'hello@3xcode.com';
+$to = '3xcode.official@gmail.com';
 $subject = 'New 3xCode Project Inquiry — ' . $service;
 
 $body = "New project inquiry\n\n"
