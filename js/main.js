@@ -51,3 +51,34 @@ form?.addEventListener("submit", async e => {
     status.textContent = "Unable to send. Please try again.";
   }
 });
+
+const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
+
+form?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  status.textContent = "Sending...";
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    if (response.ok) {
+      status.textContent = "Message sent successfully!";
+      form.reset();
+    } else {
+      status.textContent = "Unable to send. Please try again.";
+    }
+
+  } catch (error) {
+    console.error(error);
+    status.textContent = "Unable to send. Please try again.";
+  }
+});
+
